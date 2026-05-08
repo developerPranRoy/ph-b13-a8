@@ -1,1 +1,47 @@
+# dependencies
 node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# next.js build
+.next
+out
+dist
+
+# environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# logs
+logs
+*.log
+
+# runtime
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# coverage
+coverage
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+
+# optional
+.vercel
+.turbo
+
+# mongodb / prisma (if used)
+*.db
+*.sqlite
