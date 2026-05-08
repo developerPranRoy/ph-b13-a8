@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+@import "animate.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --coral: #ff6b4a;
+  --coral-light: #ff8e72;
+  --ocean: #0077b6;
+  --ocean-dark: #0c1a2e;
+  --sand: #fffbf5;
+  --teal: #14b8a6;
+  --gold: #ffd166;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #fffbf5;
+  color: #0c1a2e;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Syne", sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--coral);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--coral-light);
+}
+
+/* Swiper customizations */
+.swiper-pagination-bullet-active {
+  background: var(--coral) !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Shimmer loading */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Sun pulse animation */
+@keyframes sun-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 74, 0.4); }
+  50% { box-shadow: 0 0 0 20px rgba(255, 107, 74, 0); }
+}
+
+.sun-pulse {
+  animation: sun-pulse 2s ease-in-out infinite;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #ff6b4a, #ffd166);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-ocean {
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Star rating */
+.star-filled { color: #fbbf24; }
+.star-empty { color: #d1d5db; }
+
+/* Product card hover */
+.product-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.product-card:hover {
+  transform: translateY(-8px);
+}
+.product-card:hover .card-img {
+  transform: scale(1.08);
+}
+
+/* Badge styles */
+.badge-sale { background: linear-gradient(135deg, #ff6b4a, #c0392b); color: white; }
+.badge-new { background: linear-gradient(135deg, #14b8a6, #0077b6); color: white; }
+.badge-top { background: linear-gradient(135deg, #ffd166, #f59e0b); color: #1a1a1a; }
+.badge-popular { background: linear-gradient(135deg, #a855f7, #7c3aed); color: white; }
+
+/* Wave divider */
+.wave-divider {
+  position: relative;
+  overflow: hidden;
+}
+.wave-divider::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z' fill='%23fffbf5'/%3E%3C/svg%3E") no-repeat center bottom;
+  background-size: cover;
+}
+
+/* Input focus styles */
+.input-summer:focus {
+  outline: none;
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.15);
+}
+
+/* Btn primary summer */
+.btn-summer {
+  background: linear-gradient(135deg, #ff6b4a 0%, #ff8e53 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+.btn-summer:hover {
+  background: linear-gradient(135deg, #f04e2e 0%, #ff6b4a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 74, 0.4);
+  color: white;
+}
+
+/* Section heading underline */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b4a, #ffd166);
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
